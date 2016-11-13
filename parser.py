@@ -5,3 +5,12 @@ r= requests.get("https://gist.githubusercontent.com/murtuzakz/4bd887712703ff14c9
 data = json.loads(r.text)
 
 print (data["Episode 1"][0]["status"])
+filtered = {}
+for d in data.keys():
+    for i in data[d]:
+        if i["status"]== "Funded":
+            
+            filtered[i["investors"]] = [i["company"]["title"]]
+
+print(filtered)
+            
